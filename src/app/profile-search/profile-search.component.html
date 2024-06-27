@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="h-screen flex flex-col items-center">
+    <div class="mt-6 mb-6 w-8/12 self-center">
+        <input type="text" id="first_name"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-8 size-8 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Busca perfiles de GitHub" (input)="searchProfileByName($event)" />
+    </div>
+    <div class="grid grid-cols-4 w-10/12 gap-2">
+        <div class="max-w-sm p-2 bg-white border border-gray-200 rounded-lg text-black shadow dark:bg-gray-800 dark:border-gray-700 dark:text-white flex flex-col justify-center items-center" *ngFor="let profile of filteredProfiles">
+        <a [href]="profile.html_url" target="_blank">
+            <img class="rounded-full" [src]="profile.avatar_url" alt="Image" />
+            <p class="text-sm my-3 font-semibold text-center self-end">{{profile.login}}</p>
+        </a>
+    </div>
+    </div>
+</div>
